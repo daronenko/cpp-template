@@ -1,0 +1,5 @@
+Makefile.local
+build*
+.idea
+.vscode
+.DS_Store

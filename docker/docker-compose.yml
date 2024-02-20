@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  cpp-template-container:
+    build: .
+    privileged: true
+    environment:
+      PREFIX: ${PREFIX:-~/.local}
+      CC: ""
+      CCACHE_DIR: /cpp-template/.ccache
+      CCACHE_HASHDIR: ""
+      CCACHE_NOHASHDIR: ""
+      CCACHE_PREFIX: ""
+      CCACHE_SIZE: ""
+      CMAKE_OPTS: ""
+      CORES_DIR: /cores
+      CXX: ""
+      MAKE_OPTS: ""
+      CMAKE_COMMON_FLAGS: ""
+    volumes:
+      - ..:/cpp-template:rw
+    working_dir: /cpp-template
+    entrypoint:
+      - docker/tools/run_as_user.sh
