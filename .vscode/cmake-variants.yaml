@@ -1,0 +1,16 @@
+buildType:
+  default: debug
+  choices:
+    debug:
+      short: Debug
+      long: Unoptimized debug build with sanitizers
+      buildType: Debug
+      settings:
+        CMAKE_EXPORT_COMPILE_COMMANDS: ON
+
+    release:
+      short: Release
+      long: Optimized build
+      buildType: Release
+      settings:
+        CMAKE_EXPORT_COMPILE_COMMANDS: ON
