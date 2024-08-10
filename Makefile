@@ -80,4 +80,4 @@ docker-cmake-debug docker-build-debug docker-test-debug docker-clean-debug docke
 
 .PHONY: clean-docker
 clean-docker:
-	$(DOCKER_COMPOSE) -f docker/docker-compose.yml down -v
+	$(DOCKER_COMPOSE) -f docker/docker-compose.yml down -v --rmi all
