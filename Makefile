@@ -20,12 +20,10 @@ all: build-release test-release start-release
 
 .PHONY: cmake-debug
 cmake-debug:
-	git submodule update --init
 	cmake -B build_debug $(CMAKE_DEBUG_FLAGS)
 
 .PHONY: cmake-release
 cmake-release:
-	git submodule update --init
 	cmake -B build_release $(CMAKE_RELEASE_FLAGS)
 
 build_debug/CMakeCache.txt: cmake-debug
