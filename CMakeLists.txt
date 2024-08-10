@@ -1,16 +1,28 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.20)
 project(cpp-template)
 
-add_subdirectory(third_party)
+# CMake options
 
+include(cmake/Logging.cmake)
+include(cmake/Ccache.cmake)
 include(cmake/CompileOptions.cmake)
 
-add_subdirectory(src)
+# Third party CMakeLists
+add_subdirectory(third_party)
 
-# add_subdirectory(third_party/googletest)
-include(CTest)
+# This must be included after library so that
+# third party code is not affected
+include(cmake/Werror.cmake)
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  include(cmake/Sanitize.cmake)
+endif()
+
+# CMakeLists
+add_subdirectory(src)
 add_subdirectory(tests)
 
+# Installation setup
 if(DEFINED ENV{PREFIX})
   message(STATUS "Set install prefix: $ENV{PREFIX}")
   file(TO_CMAKE_PATH "$ENV{PREFIX}" PREFIX_PATH)
