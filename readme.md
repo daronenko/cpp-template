@@ -61,12 +61,6 @@ You can check if everything has been replaced with:
 grep -r "cpp-template" .
 ```
 
-3. Download submodules:
-
-```sh
-git submodule update --init
-```
-
 ## Commands <a name="commands"></a>
 
 ### Debug <a name="debug-commands"></a>
